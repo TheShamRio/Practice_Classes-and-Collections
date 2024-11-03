@@ -101,6 +101,28 @@ data class Event(
 //}
 
 //6
+//fun main() {
+//    val events = mutableListOf<Event>(
+//        Event(title = "Wake up", description = "Time to get up", daypart = Daypart.MORNING, durationInMinutes = 0),
+//        Event(title = "Eat breakfast", daypart = Daypart.MORNING, durationInMinutes = 15),
+//        Event(title = "Learn about Kotlin", daypart = Daypart.AFTERNOON, durationInMinutes = 30),
+//        Event(title = "Practice Compose", daypart = Daypart.AFTERNOON, durationInMinutes = 60),
+//        Event(title = "Watch latest DevBytes video", daypart = Daypart.AFTERNOON, durationInMinutes = 10),
+//        Event(title = "Check out latest Android Jetpack library", daypart = Daypart.EVENING, durationInMinutes = 45),
+//        Event(title = "Dinner with family", daypart = Daypart.EVENING, durationInMinutes = 90)
+//    )
+//
+//    // Используем функцию last() для получения последнего события
+//    println("Last event of the day: ${events.last().title}")
+//}
+
+val Event.durationOfEvent: String
+    get() = if (this.durationInMinutes < 60) {
+        "short"
+    } else {
+        "long"
+    }
+
 fun main() {
     val events = mutableListOf<Event>(
         Event(title = "Wake up", description = "Time to get up", daypart = Daypart.MORNING, durationInMinutes = 0),
@@ -112,6 +134,6 @@ fun main() {
         Event(title = "Dinner with family", daypart = Daypart.EVENING, durationInMinutes = 90)
     )
 
-    // Используем функцию last() для получения последнего события
-    println("Last event of the day: ${events.last().title}")
+    // Используем свойство расширения для получения информации о длительности события
+    println("Duration of first event of the day: ${events[0].durationOfEvent}")
 }
