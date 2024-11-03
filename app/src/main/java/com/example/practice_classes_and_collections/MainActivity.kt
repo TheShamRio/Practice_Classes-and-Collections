@@ -79,8 +79,29 @@ data class Event(
 
 
 //5
+//fun main() {
+//    // Список событий
+//    val events = mutableListOf<Event>(
+//        Event(title = "Wake up", description = "Time to get up", daypart = Daypart.MORNING, durationInMinutes = 0),
+//        Event(title = "Eat breakfast", daypart = Daypart.MORNING, durationInMinutes = 15),
+//        Event(title = "Learn about Kotlin", daypart = Daypart.AFTERNOON, durationInMinutes = 30),
+//        Event(title = "Practice Compose", daypart = Daypart.AFTERNOON, durationInMinutes = 60),
+//        Event(title = "Watch latest DevBytes video", daypart = Daypart.AFTERNOON, durationInMinutes = 10),
+//        Event(title = "Check out latest Android Jetpack library", daypart = Daypart.EVENING, durationInMinutes = 45),
+//        Event(title = "Dinner with family", daypart = Daypart.EVENING, durationInMinutes = 90)
+//    )
+//
+//    // Группируем события по daypart
+//    val eventsByDaypart = events.groupBy { it.daypart }
+//
+//    // Выводим количество событий для каждой части дня
+//    for ((daypart, events) in eventsByDaypart) {
+//        println("${daypart.name}: ${events.size} events")
+//    }
+//}
+
+//6
 fun main() {
-    // Список событий
     val events = mutableListOf<Event>(
         Event(title = "Wake up", description = "Time to get up", daypart = Daypart.MORNING, durationInMinutes = 0),
         Event(title = "Eat breakfast", daypart = Daypart.MORNING, durationInMinutes = 15),
@@ -91,11 +112,6 @@ fun main() {
         Event(title = "Dinner with family", daypart = Daypart.EVENING, durationInMinutes = 90)
     )
 
-    // Группируем события по daypart
-    val eventsByDaypart = events.groupBy { it.daypart }
-
-    // Выводим количество событий для каждой части дня
-    for ((daypart, events) in eventsByDaypart) {
-        println("${daypart.name}: ${events.size} events")
-    }
+    // Используем функцию last() для получения последнего события
+    println("Last event of the day: ${events.last().title}")
 }
