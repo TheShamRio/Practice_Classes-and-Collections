@@ -13,10 +13,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.practice_classes_and_collections.ui.theme.Practice_ClassesandCollectionsTheme
 
+enum class Daypart {
+    MORNING,
+    AFTERNOON,
+    EVENING
+}
+
 data class Event(
     val title: String,
     val description: String? = null,
-    val daypart: String,
+    val daypart: Daypart,
     val durationInMinutes: Int
 )
 
@@ -24,7 +30,7 @@ fun main() {
     val event = Event(
         title = "Study Kotlin",
         description = "Commit to studying Kotlin at least 15 minutes per day.",
-        daypart = "Evening",
+        daypart = Daypart.EVENING,
         durationInMinutes = 15
     )
     println(event)
