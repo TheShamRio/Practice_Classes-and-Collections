@@ -59,20 +59,43 @@ data class Event(
 //}
 
 //4
+//fun main() {
+//    // Создаем список событий
+//    val events = mutableListOf<Event>(
+//        Event(title = "Wake up", description = "Time to get up", daypart = Daypart.MORNING, durationInMinutes = 0),
+//        Event(title = "Eat breakfast", daypart = Daypart.MORNING, durationInMinutes = 15),
+//        Event(title = "Learn about Kotlin", daypart = Daypart.AFTERNOON, durationInMinutes = 30),
+//        Event(title = "Practice Compose", daypart = Daypart.AFTERNOON, durationInMinutes = 60),
+//        Event(title = "Watch latest DevBytes video", daypart = Daypart.AFTERNOON, durationInMinutes = 10),
+//        Event(title = "Check out latest Android Jetpack library", daypart = Daypart.EVENING, durationInMinutes = 45)
+//    )
+//
+//    // Отфильтровываем короткие события (менее 60 минут)
+//    val shortEvents = events.filter { it.durationInMinutes < 60 }
+//
+//    // Получаем количество коротких событий
+//    println("У вас ${shortEvents.size} коротких событий")
+//}
+
+
+//5
 fun main() {
-    // Создаем список событий
+    // Список событий
     val events = mutableListOf<Event>(
         Event(title = "Wake up", description = "Time to get up", daypart = Daypart.MORNING, durationInMinutes = 0),
         Event(title = "Eat breakfast", daypart = Daypart.MORNING, durationInMinutes = 15),
         Event(title = "Learn about Kotlin", daypart = Daypart.AFTERNOON, durationInMinutes = 30),
         Event(title = "Practice Compose", daypart = Daypart.AFTERNOON, durationInMinutes = 60),
         Event(title = "Watch latest DevBytes video", daypart = Daypart.AFTERNOON, durationInMinutes = 10),
-        Event(title = "Check out latest Android Jetpack library", daypart = Daypart.EVENING, durationInMinutes = 45)
+        Event(title = "Check out latest Android Jetpack library", daypart = Daypart.EVENING, durationInMinutes = 45),
+        Event(title = "Dinner with family", daypart = Daypart.EVENING, durationInMinutes = 90)
     )
 
-    // Отфильтровываем короткие события (менее 60 минут)
-    val shortEvents = events.filter { it.durationInMinutes < 60 }
+    // Группируем события по daypart
+    val eventsByDaypart = events.groupBy { it.daypart }
 
-    // Получаем количество коротких событий
-    println("У вас ${shortEvents.size} коротких событий")
+    // Выводим количество событий для каждой части дня
+    for ((daypart, events) in eventsByDaypart) {
+        println("${daypart.name}: ${events.size} events")
+    }
 }
